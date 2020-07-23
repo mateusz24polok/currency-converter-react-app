@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import CurrencySection from "./CurrencySection";
+import Button from "./Button";
 
 const currenciesArray = [
   "PLN",
@@ -136,9 +137,7 @@ const App = class extends React.Component {
               currencyArray={currenciesArray}
               defaultSelection="EUR"
             />
-            <button className="calculatorForm__calculateButton" type="button">
-              Check exchange rate and date
-            </button>
+            <Button buttonContent = "Check exchange rate and date"/>
             <p className="calculatorForm__Message" />
           </form>
         </div>
