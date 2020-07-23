@@ -3,6 +3,7 @@ import "./index.css";
 import CurrencySection from "./CurrencySection";
 import Button from "./Button";
 import Message from "./Message";
+import AppHeader from "./AppHeader";
 
 const currenciesArray = [
   "PLN",
@@ -141,7 +142,7 @@ const App = class extends React.Component {
     return (
       <>
         <div className="appWrapper">
-          <h1 className="calculatorHeader">Currency Converter</h1>
+          <AppHeader />
           <form className="calculatorForm">
             <CurrencySection
               currencyValueChangeHandler={this.onFirstInputChange}
