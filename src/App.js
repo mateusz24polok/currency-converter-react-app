@@ -26,7 +26,8 @@ const App = class extends React.Component {
       secondCurrencyValue: 0,
       firstCurrency: "PLN",
       secondCurrency: "EUR",
-      exchangeDate: ""
+      exchangeDate: "",
+      exchangeRate: "",
     };
 
     this.onFirstInputChange = this.onFirstInputChange.bind(this);
@@ -131,7 +132,8 @@ const App = class extends React.Component {
       this.state.secondCurrency
     );
     this.setState({
-      exchangeDate: exchangeData.exchangeDate
+      exchangeDate: exchangeData.exchangeDate,
+      exchangeRate: exchangeData.exchangeRate.toFixed(3)
     })
   }
 
@@ -160,7 +162,8 @@ const App = class extends React.Component {
               onClick={this.onButtonClick}
             />
             {this.state.exchangeDate
-              ? <Message content={this.state.exchangeDate} />
+              ? <Message content={`Your calculation is current for ${this.state.exchangeDate} 
+              and your exchange rate is ${this.state.exchangeRate}`} />
               : null
             }
             <p className="calculatorForm__Message" />
