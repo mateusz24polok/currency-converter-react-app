@@ -161,12 +161,10 @@ const App = class extends React.Component {
               buttonContent="Check exchange rate and date"
               onClick={this.onButtonClick}
             />
-            {this.state.exchangeDate
-              ? <Message content={`Your calculation is current for ${this.state.exchangeDate} 
-              and your exchange rate is ${this.state.exchangeRate}`} />
-              : null
-            }
-            <p className="calculatorForm__Message" />
+            <Message
+              content={`Your calculation is current for ${this.state.exchangeDate} 
+              and your exchange rate is ${this.state.exchangeRate}`}
+              extraClass={this.state.exchangeDate ? "calculatorForm__Message--info" : ""} />
           </form>
         </div>
 

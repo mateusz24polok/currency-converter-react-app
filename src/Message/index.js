@@ -1,8 +1,8 @@
 import React from 'react';
 import "./style.css";
 
-const Message = ({content})=>(
-    <p className="calculatorForm__Message">
+const Message = ({content, extraClass})=>(
+    <p className={`calculatorForm__Message ${extraClass}`}>
         {content}
     </p>
 );
