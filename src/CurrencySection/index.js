@@ -1,10 +1,11 @@
 import React from "react";
 import "./style.css";
-import CurrencySelect from "../CurrencySelect"
+import CurrencySelect from "../CurrencySelect";
+import CurrencyValueInput from "../CurrencyValueInput";
 
 const CurrencySection = ({
   currencyValue,
-  currencyValueChange,
+  currencyValueChangeHandler,
   currencyChange,
   currencyArray,
   defaultSelection
@@ -17,14 +18,9 @@ const CurrencySection = ({
       currencyArray = {currencyArray}
       defaultSelection = {defaultSelection}
       />
-      <input
-        className="calculatorForm__input"
-        placeholder="enter value"
-        value={currencyValue}
-        type="number"
-        step="0.01"
-        min="0"
-        onChange={currencyValueChange}
+      <CurrencyValueInput
+      currencyValue = {currencyValue}
+      currencyValueChangeHandler = {currencyValueChangeHandler}
       />
     </section>
   );

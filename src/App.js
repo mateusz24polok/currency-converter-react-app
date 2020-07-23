@@ -123,14 +123,14 @@ const App = class extends React.Component {
           <h1 className="calculatorHeader">Currency Converter</h1>
           <form className="calculatorForm">
             <CurrencySection
-              currencyValueChange={this.onFirstInputChange}
+              currencyValueChangeHandler={this.onFirstInputChange}
               currencyValue={this.state.firstCurrencyValue}
               currencyChange={this.onFirstSelectChange}
               currencyArray={currenciesArray}
               defaultSelection="PLN"
             />
             <CurrencySection
-              currencyValueChange={this.onSecondInputChange}
+              currencyValueChangeHandler={this.onSecondInputChange}
               currencyValue={this.state.secondCurrencyValue}
               currencyChange={this.onSecondSelectChange}
               currencyArray={currenciesArray}
