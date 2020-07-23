@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import CurrencySelect from "../CurrencySelect"
 
 const CurrencySection = ({
   currencyValue,
@@ -10,26 +11,12 @@ const CurrencySection = ({
 }) => {
   return (
     <section className="calculatorForm__currencySection">
-      <select
-        className="calculatorForm__select"
-        name="currency1"
-        onChange={currencyChange}
-      >
-        {currencyArray.map(currency => {
-          if (currency === defaultSelection) {
-            return (
-              <option selected key={currency} value={currency}>
-                {currency}
-              </option>
-            );
-          }
-          return (
-            <option key={currency} value={currency}>
-              {currency}
-            </option>
-          );
-        })}
-      </select>
+      <CurrencySelect
+      selectName = "currency1"
+      currencyChange = {currencyChange}
+      currencyArray = {currencyArray}
+      defaultSelection = {defaultSelection}
+      />
       <input
         className="calculatorForm__input"
         placeholder="enter value"
