@@ -2,6 +2,7 @@ import React from "react";
 import "./index.css";
 import CurrencySection from "./CurrencySection";
 import Button from "./Button";
+import Message from "./Message";
 
 const currenciesArray = [
   "PLN",
@@ -24,7 +25,8 @@ const App = class extends React.Component {
       firstCurrencyValue: 0,
       secondCurrencyValue: 0,
       firstCurrency: "PLN",
-      secondCurrency: "EUR"
+      secondCurrency: "EUR",
+      exchangeDate: ""
     };
 
     this.onFirstInputChange = this.onFirstInputChange.bind(this);
@@ -32,6 +34,7 @@ const App = class extends React.Component {
     this.onFirstSelectChange = this.onFirstSelectChange.bind(this);
     this.onSecondSelectChange = this.onSecondSelectChange.bind(this);
     this.updateCurrencyValue = this.updateCurrencyValue.bind(this);
+    this.onButtonClick = this.onButtonClick.bind(this);
   }
 
   getExchangeData = async (basedCurrency, exchangedCurrency) => {
@@ -69,7 +72,8 @@ const App = class extends React.Component {
         this.setState({
           secondCurrencyValue: (
             exchangeData.exchangeRate * basedCurrencyValue
-          ).toFixed(2)
+          ).toFixed(2),
+          exchangeDate: ""
         });
       }
     } catch {
@@ -79,7 +83,8 @@ const App = class extends React.Component {
 
   onFirstInputChange = async event => {
     await this.setState({
-      firstCurrencyValue: event.target.value
+      firstCurrencyValue: event.target.value,
+      exchangeDate: ""
     });
     this.updateCurrencyValue(
       this.state.secondCurrencyValue,
@@ -89,7 +94,8 @@ const App = class extends React.Component {
 
   onSecondInputChange = async event => {
     await this.setState({
-      secondCurrencyValue: event.target.value
+      secondCurrencyValue: event.target.value,
+      exchangeDate: ""
     });
     this.updateCurrencyValue(
       this.state.firstCurrencyValue,
@@ -99,7 +105,8 @@ const App = class extends React.Component {
 
   onFirstSelectChange = async event => {
     await this.setState({
-      firstCurrency: event.target.value
+      firstCurrency: event.target.value,
+      exchangeDate: ""
     });
     this.updateCurrencyValue(
       this.state.secondCurrencyValue,
@@ -109,13 +116,24 @@ const App = class extends React.Component {
 
   onSecondSelectChange = async event => {
     await this.setState({
-      secondCurrency: event.target.value
+      secondCurrency: event.target.value,
+      exchangeDate: ""
     });
     this.updateCurrencyValue(
       this.state.secondCurrencyValue,
       this.state.firstCurrencyValue
     );
   };
+
+  onButtonClick = async () => {
+    const exchangeData = await this.getExchangeData(
+      this.state.firstCurrency,
+      this.state.secondCurrency
+    );
+    this.setState({
+      exchangeDate: exchangeData.exchangeDate
+    })
+  }
 
   render() {
     return (
@@ -137,7 +155,14 @@ const App = class extends React.Component {
               currencyArray={currenciesArray}
               defaultSelection="EUR"
             />
-            <Button buttonContent = "Check exchange rate and date"/>
+            <Button
+              buttonContent="Check exchange rate and date"
+              onClick={this.onButtonClick}
+            />
+            {this.state.exchangeDate
+              ? <Message content={this.state.exchangeDate} />
+              : null
+            }
             <p className="calculatorForm__Message" />
           </form>
         </div>
