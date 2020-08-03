@@ -17,22 +17,17 @@ const currenciesArray = [
   "HUF"
 ];
 
-const App = class extends React.Component {
+const App = () => (
+  <>
+    <div className="appWrapper">
+      <AppHeader />
+      <Form currenciesArray={currenciesArray} />
+    </div>
 
-  render() {
-    return (
-      <>
-        <div className="appWrapper">
-          <AppHeader />
-          <Form currenciesArray={currenciesArray} />
-        </div>
-
-        <div className="backgroundImageContainer">
-          <div className="backgroundColorContainer" />
-        </div>
-      </>
-    );
-  }
-};
+    <div className="backgroundImageContainer">
+      <div className="backgroundColorContainer" />
+    </div>
+  </>
+)
 
 export default App;
