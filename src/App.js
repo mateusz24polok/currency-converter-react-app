@@ -3,6 +3,7 @@ import "./index.css";
 import AppHeader from "./AppHeader";
 import AppWrapper from "./AppWrapper";
 import Form from "./Form";
+import Background from "./Background";
 
 const currenciesArray = [
   "PLN",
@@ -24,10 +25,7 @@ const App = () => (
       <AppHeader />
       <Form currenciesArray={currenciesArray} />
     </AppWrapper>
-
-    <div className="backgroundImageContainer">
-      <div className="backgroundColorContainer" />
-    </div>
+    <Background />
   </>
 )
 
