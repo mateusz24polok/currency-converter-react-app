@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import AppHeader from "./AppHeader";
+import AppWrapper from "./AppWrapper";
 import Form from "./Form";
 
 const currenciesArray = [
@@ -19,10 +20,10 @@ const currenciesArray = [
 
 const App = () => (
   <>
-    <div className="appWrapper">
+    <AppWrapper>
       <AppHeader />
       <Form currenciesArray={currenciesArray} />
-    </div>
+    </AppWrapper>
 
     <div className="backgroundImageContainer">
       <div className="backgroundColorContainer" />
