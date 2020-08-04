@@ -4,6 +4,7 @@ import AppHeader from "./AppHeader";
 import AppWrapper from "./AppWrapper";
 import Form from "./Form";
 import Background from "./Background";
+import Clock from "./Clock";
 
 const currenciesArray = [
   "PLN",
@@ -22,6 +23,7 @@ const currenciesArray = [
 const App = () => (
   <>
     <AppWrapper>
+      <Clock />
       <AppHeader />
       <Form currenciesArray={currenciesArray} />
     </AppWrapper>
