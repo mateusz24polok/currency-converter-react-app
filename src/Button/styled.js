@@ -1,4 +1,6 @@
-.calculatorForm__calculateButton {
+import styled from "styled-components";
+
+export const StyledButton = styled.button`
     display: block;
     margin: 0 auto;
     border: none;
@@ -9,15 +11,13 @@
     background-color: rgba(199, 194, 194, 0.801);
     transition: background-color 0.15s linear;
     border-radius: 10px;
-}
 
-.calculatorForm__calculateButton:hover, .calculatorForm__calculateButton:focus {
-    background-color: white;
-}
+    &:hover{
+        background-color: white;
+    }
 
-@media (max-width: 500px) {
-    .calculatorForm__calculateButton {
+    @media (max-width: 500px) {
         font-size: 20px;
         padding: 5px;
     }
-}
+`;

@@ -1,13 +1,12 @@
 import React from 'react';
-import "./style.css";
+import { StyledButton } from "./styled";
 
-const Button = ({buttonContent, onClick})=>(
-    <button 
-    className="calculatorForm__calculateButton" 
+const Button = ({ buttonContent, onClick }) => (
+  <StyledButton
     type="button"
-    onClick = {onClick}>
+    onClick={onClick}>
     {buttonContent}
-  </button>
+  </StyledButton>
 );
 
 export default Button;
