@@ -1,8 +1,10 @@
 import React from "react";
-import "./style.css";
+import { Wrapper } from "./styled";
 
 const AppWrapper = ({ children }) => (
-    <div className="appWrapper">{children}</div>
+    <Wrapper>
+        {children}
+    </Wrapper>
 );
 
 export default AppWrapper;

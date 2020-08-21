@@ -1,15 +1,15 @@
-.appWrapper {
+import styled from "styled-components";
+
+export const Wrapper = styled.div`
     max-width: 600px;
     background: rgba(15, 69, 76, 0.749);
     padding: 5px 40px;
     box-shadow: 3px -4px 5px 2px rgba(50, 50, 50, 0.75);
     margin: 20px;
     border-radius: 20px;
-}
 
-@media (max-width: 500px) {
-    .appWrapper {
+    @media (max-width: 500px) {
         padding: 0 10px;
         margin: 10px;
     }
-}
+`;
