@@ -1,7 +1,7 @@
 import React from "react";
-import "./style.css";
 import CurrencySelect from "../CurrencySelect";
 import CurrencyValueInput from "../CurrencyValueInput";
+import { StyledSection } from "./styled";
 
 const CurrencySection = ({
   currencyValue,
@@ -11,18 +11,18 @@ const CurrencySection = ({
   defaultSelection
 }) => {
   return (
-    <section className="calculatorForm__currencySection">
+    <StyledSection>
       <CurrencySelect
-      selectName = "currency1"
-      currencyChange = {currencyChange}
-      currencyArray = {currencyArray}
-      defaultSelection = {defaultSelection}
+        selectName="currency1"
+        currencyChange={currencyChange}
+        currencyArray={currencyArray}
+        defaultSelection={defaultSelection}
       />
       <CurrencyValueInput
-      currencyValue = {currencyValue}
-      currencyValueChangeHandler = {currencyValueChangeHandler}
+        currencyValue={currencyValue}
+        currencyValueChangeHandler={currencyValueChangeHandler}
       />
-    </section>
+    </StyledSection>
   );
 };
 
