@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 import { StyledSelect } from "./styled";
 
 const CurrencySelect = ({ selectName, currencyChange, currencyArray, defaultSelection }) => (

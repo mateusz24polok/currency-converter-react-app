@@ -1,10 +1,10 @@
 import React from 'react';
-import "./style.css";
+import { MessageContent } from "./styled";
 
-const Message = ({content, extraClass})=>(
-    <p className={`calculatorForm__Message ${extraClass}`}>
+const Message = ({ content, info, warning }) => (
+    <MessageContent info={info} warning={warning}>
         {content}
-    </p>
+    </MessageContent>
 );
 
 export default Message;

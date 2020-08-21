@@ -102,7 +102,7 @@ const Form = ({ currenciesArray }) => {
             <Message
                 content={`Your calculation is current for ${exchangeDate} 
                     and your exchange rate is ${exchangeRate}`}
-                extraClass={exchangeDate ? "calculatorForm__Message--info" : ""} />
+                info={exchangeDate ? true : false} />
         </form>
     );
 };
