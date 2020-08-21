@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./style.css";
+import { ClockText } from "./styled";
 
 const Clock = () => {
 
@@ -17,7 +17,7 @@ const Clock = () => {
     }, [])
 
     return (
-        <p className="clock">{date}</p>
+        <ClockText>{date}</ClockText>
     )
 };
 
