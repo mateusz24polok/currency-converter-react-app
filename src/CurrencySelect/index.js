@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.css";
+import { StyledSelect } from "./styled";
 
-const CurrencySelect = ({selectName, currencyChange, currencyArray, defaultSelection})=>(
-    <select
-    className="calculatorForm__select"
+const CurrencySelect = ({ selectName, currencyChange, currencyArray, defaultSelection }) => (
+  <StyledSelect
     name={selectName}
     onChange={currencyChange}
   >
@@ -21,7 +21,7 @@ const CurrencySelect = ({selectName, currencyChange, currencyArray, defaultSelec
         </option>
       );
     })}
-  </select>
+  </StyledSelect>
 );
 
 export default CurrencySelect;
