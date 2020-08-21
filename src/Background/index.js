@@ -1,10 +1,10 @@
 import React from "react";
-import "./style.css";
+import { BackgroundColorContainer, BackgroundImageContainer } from "./styled";
 
 const Background = () => (
-    <div className="backgroundImageContainer">
-        <div className="backgroundColorContainer" />
-    </div>
+    <BackgroundImageContainer>
+        <BackgroundColorContainer />
+    </BackgroundImageContainer>
 );
 
 export default Background;
