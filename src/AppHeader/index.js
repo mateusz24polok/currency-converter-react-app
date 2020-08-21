@@ -1,8 +1,10 @@
 import React from 'react';
-import "./style.css";
+import { Title } from "./styled";
 
-const AppHeader = ()=>(
-    <h1 className="calculatorHeader">Currency Converter</h1>
+const AppHeader = () => (
+    <Title>
+        Currency Converter
+    </Title>
 );
 
 export default AppHeader;
