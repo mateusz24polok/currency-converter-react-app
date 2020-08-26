@@ -1,23 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { ClockText } from "./styled";
+import { useCurrentDate } from "./useCurrentDate";
 
 const Clock = () => {
-
-    const [date, setDate] = useState((new Date()).toLocaleString());
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            const newDate = new Date();
-            setDate(newDate.toLocaleString());
-        }, 1000)
-
-        return () => {
-            clearInterval(intervalId);
-        }
-    }, [])
+    const date = useCurrentDate();
 
     return (
-        <ClockText>{date}</ClockText>
+        <ClockText>{date.toLocaleString()}</ClockText>
     )
 };
 
