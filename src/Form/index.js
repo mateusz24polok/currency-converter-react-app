@@ -90,7 +90,7 @@ const Form = ({ currenciesArray }) => {
             />
             <CurrencySection
                 currencyValueChangeHandler={onSecondInputChange}
-                currencyValue={secondCurrencyValue}
+                currencyValue={secondCurrencyValue.toFixed(2)}
                 currencyChange={onSecondSelectChange}
                 currencyArray={currenciesArray}
                 defaultSelection="EUR"
