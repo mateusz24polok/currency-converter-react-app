@@ -1,5 +1,4 @@
 import React from "react";
-import "./index.css";
 import AppHeader from "./AppHeader";
 import AppWrapper from "./AppWrapper";
 import Form from "./Form";

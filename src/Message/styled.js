@@ -7,7 +7,7 @@ export const MessageContent = styled.p`
     margin: 30px auto;
     text-align: center;
     opacity: 0;
-    color: transparent;
+    color: ${({ theme }) => theme.color.transparent};
     transition: opacity 0.2s linear;
     line-height: 1;
 
@@ -20,11 +20,11 @@ export const MessageContent = styled.p`
 
     ${({ warning }) => (warning && css`
         opacity: 1;
-        color: red;
+        color: ${({ theme }) => theme.color.red};
     `)}
 
     ${({ info }) => (info && css`
         opacity: 1;
-        color: rgba(157, 233, 145, 0.76);
+        color: ${({ theme }) => theme.color.apple};
     `)}
 `;

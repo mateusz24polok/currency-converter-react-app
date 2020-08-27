@@ -2,6 +2,6 @@ import styled from "styled-components";
 
 export const ClockText = styled.p`
     text-align: right;
-    color: rgba(157, 233, 145, 0.76);
+    color: ${({ theme }) => theme.color.apple};
     padding-right: 20px;
 `;

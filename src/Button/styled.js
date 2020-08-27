@@ -6,14 +6,14 @@ export const StyledButton = styled.button`
     border: none;
     font-size: 24px;
     padding: 10px;
-    box-shadow: 3px -4px 5px 2px rgba(50, 50, 50, 0.75);
+    box-shadow: 3px -4px 5px 2px ${({theme})=>theme.color.mineShaft};
     cursor: pointer;
-    background-color: rgba(199, 194, 194, 0.801);
+    background-color: ${({ theme }) => theme.color.silver};
     transition: background-color 0.15s linear;
     border-radius: 10px;
 
     &:hover{
-        background-color: white;
+        background-color: ${({ theme }) => theme.color.white};
     }
 
     @media (max-width: 500px) {

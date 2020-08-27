@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     max-width: 600px;
-    background: rgba(15, 69, 76, 0.749);
+    background: ${({theme})=>theme.color.eden};
     padding: 5px 40px;
-    box-shadow: 3px -4px 5px 2px rgba(50, 50, 50, 0.75);
+    box-shadow: 3px -4px 5px 2px ${({theme})=>theme.color.mineShaft};
     margin: 20px;
     border-radius: 20px;
 

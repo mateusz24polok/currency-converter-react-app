@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Title = styled.h1`
-    color: rgba(157, 233, 145, 0.76);
+    color: ${({ theme }) => theme.color.apple};
     text-align: center;
     margin: 50px 0;
     font-size: 32px;

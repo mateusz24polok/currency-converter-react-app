@@ -17,5 +17,5 @@ export const BackgroundColorContainer = styled.div`
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-color: rgba(10, 10, 10, 0.705);
+    background-color: ${({ theme }) => theme.color.codGray};
 `;
