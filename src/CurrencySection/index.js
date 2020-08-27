@@ -8,7 +8,8 @@ const CurrencySection = ({
   currencyValueChangeHandler,
   currencyChange,
   currencyArray,
-  defaultSelection
+  defaultSelection,
+  inputDisabled
 }) => {
   return (
     <StyledSection>
@@ -21,6 +22,7 @@ const CurrencySection = ({
       <CurrencyValueInput
         currencyValue={currencyValue}
         currencyValueChangeHandler={currencyValueChangeHandler}
+        disabled={inputDisabled}
       />
     </StyledSection>
   );

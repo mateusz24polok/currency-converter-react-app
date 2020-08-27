@@ -94,6 +94,7 @@ const Form = ({ currenciesArray }) => {
                 currencyChange={onSecondSelectChange}
                 currencyArray={currenciesArray}
                 defaultSelection="EUR"
+                inputDisabled
             />
             <Button
                 buttonContent="Check exchange rate and date"
