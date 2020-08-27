@@ -1,22 +1,19 @@
 {
   "files": {
-    "main.css": "/currency-converter-react-app/static/css/main.bcfbab3f.chunk.css",
-    "main.js": "/currency-converter-react-app/static/js/main.95858e85.chunk.js",
-    "main.js.map": "/currency-converter-react-app/static/js/main.95858e85.chunk.js.map",
+    "main.js": "/currency-converter-react-app/static/js/main.48fb38d0.chunk.js",
+    "main.js.map": "/currency-converter-react-app/static/js/main.48fb38d0.chunk.js.map",
     "runtime-main.js": "/currency-converter-react-app/static/js/runtime-main.05acdfeb.js",
     "runtime-main.js.map": "/currency-converter-react-app/static/js/runtime-main.05acdfeb.js.map",
-    "static/js/2.57ceee45.chunk.js": "/currency-converter-react-app/static/js/2.57ceee45.chunk.js",
-    "static/js/2.57ceee45.chunk.js.map": "/currency-converter-react-app/static/js/2.57ceee45.chunk.js.map",
+    "static/js/2.5905550d.chunk.js": "/currency-converter-react-app/static/js/2.5905550d.chunk.js",
+    "static/js/2.5905550d.chunk.js.map": "/currency-converter-react-app/static/js/2.5905550d.chunk.js.map",
     "index.html": "/currency-converter-react-app/index.html",
-    "precache-manifest.e0faa73a5a7bf8c29d3faee53be492cb.js": "/currency-converter-react-app/precache-manifest.e0faa73a5a7bf8c29d3faee53be492cb.js",
+    "precache-manifest.23a3303fe908f296ea6dc881c24cf1f4.js": "/currency-converter-react-app/precache-manifest.23a3303fe908f296ea6dc881c24cf1f4.js",
     "service-worker.js": "/currency-converter-react-app/service-worker.js",
-    "static/css/main.bcfbab3f.chunk.css.map": "/currency-converter-react-app/static/css/main.bcfbab3f.chunk.css.map",
-    "static/js/2.57ceee45.chunk.js.LICENSE.txt": "/currency-converter-react-app/static/js/2.57ceee45.chunk.js.LICENSE.txt"
+    "static/js/2.5905550d.chunk.js.LICENSE.txt": "/currency-converter-react-app/static/js/2.5905550d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.05acdfeb.js",
-    "static/js/2.57ceee45.chunk.js",
-    "static/css/main.bcfbab3f.chunk.css",
-    "static/js/main.95858e85.chunk.js"
+    "static/js/2.5905550d.chunk.js",
+    "static/js/main.48fb38d0.chunk.js"
   ]
 }
