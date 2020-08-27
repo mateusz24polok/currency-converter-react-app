@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AppHeader from "./AppHeader";
 import AppWrapper from "./AppWrapper";
 import Form from "./Form";
@@ -19,15 +19,35 @@ const currenciesArray = [
   "HUF"
 ];
 
-const App = () => (
-  <>
-    <AppWrapper>
-      <Clock />
-      <AppHeader />
-      <Form currenciesArray={currenciesArray} />
-    </AppWrapper>
-    <Background />
-  </>
-)
+
+
+const App = () => {
+  const [currenciesRates, setCurrenciesRates] = useState();
+
+  useEffect(() => {
+    fetch(`https://api.exchangeratesapi.io/latest?base=PLN`)
+      .then(response => response.json())
+      .then(currencyData => {
+        setTimeout(() => {
+          setCurrenciesRates(currencyData)
+        }, 2000)
+      })
+  }, []);
+
+  return (
+    <>
+      <AppWrapper>
+        {currenciesRates ? (
+          <>
+            <Clock />
+            <AppHeader />
+            <Form currenciesArray={currenciesArray} />
+          </>
+        ) : (<p>Dane się jeszcze ładujo</p>)}
+      </AppWrapper>
+      <Background />
+    </>
+  )
+};
 
 export default App;

@@ -21,17 +21,6 @@ const Form = ({ currenciesArray }) => {
     },
         [firstCurrencyValue, firstCurrency, secondCurrency])
 
-    // useEffect(() => {
-    //     const exchangeData = getExchangeData(
-    //         firstCurrency,
-    //         secondCurrency
-    //     );
-
-    //     exchangeData.then(exchangeData => {
-    //         setFirstCurrencyValue(secondCurrencyValue * 1 / exchangeData.exchangeRate)
-    //     })
-    // }, [secondCurrencyValue])
-
     const getExchangeData = async (basedCurrency, exchangedCurrency) => {
         const exchangeDataResponse = await fetch(
             `https://api.exchangeratesapi.io/latest?base=${basedCurrency}`
