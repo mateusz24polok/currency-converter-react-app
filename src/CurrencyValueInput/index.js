@@ -1,8 +1,8 @@
 import React from "react";
-import "./style.css";
+import { StyledInput } from "./styled";
 
-const CurrencyValueInput = ({currencyValue, currencyValueChangeHandler})=>(
-    <input
+const CurrencyValueInput = ({ currencyValue, currencyValueChangeHandler }) => (
+  <StyledInput
     className="calculatorForm__input"
     placeholder="enter value"
     value={currencyValue}
