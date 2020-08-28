@@ -3,7 +3,9 @@ import CurrencySection from "../CurrencySection";
 import Button from "../Button";
 import Message from "../Message";
 
-const Form = ({ currenciesArray }) => {
+const Form = ({ currenciesArray, currenciesRates }) => {
+
+    console.log(currenciesRates);
 
     const [firstCurrencyValue, setFirstCurrencyValue] = useState(0);
     const [secondCurrencyValue, setSecondCurrencyValue] = useState(0);
@@ -13,31 +15,15 @@ const Form = ({ currenciesArray }) => {
     const [exchangeRate, setExchangeRate] = useState("");
 
     useEffect(() => {
-        const exchangeData = getExchangeData(firstCurrency, secondCurrency);
+        const firstCurrencyPLNRate = currenciesRates.rates[firstCurrency];
+        const secondCurrencyPLNRate = currenciesRates.rates[secondCurrency];
+        const rate = secondCurrencyPLNRate / firstCurrencyPLNRate;
 
-        exchangeData.then(exchangeData => {
-            setSecondCurrencyValue(firstCurrencyValue * exchangeData.exchangeRate)
-        })
+        console.log(firstCurrencyPLNRate, secondCurrencyPLNRate, rate);
+
+        setSecondCurrencyValue(firstCurrencyValue * rate)
     },
-        [firstCurrencyValue, firstCurrency, secondCurrency])
-
-    const getExchangeData = async (basedCurrency, exchangedCurrency) => {
-        const exchangeDataResponse = await fetch(
-            `https://api.exchangeratesapi.io/latest?base=${basedCurrency}`
-        );
-        const exchangeData = await exchangeDataResponse.json();
-        if (basedCurrency === "EUR" && exchangedCurrency === "EUR") {
-            return {
-                exchangeRate: 1,
-                exchangeDate: exchangeData.date
-            };
-        } else {
-            return {
-                exchangeRate: exchangeData.rates[exchangedCurrency],
-                exchangeDate: exchangeData.date
-            };
-        }
-    };
+        [firstCurrencyValue, firstCurrency, secondCurrency, currenciesRates.rates])
 
     const onFirstInputChange = event => {
         setFirstCurrencyValue(event.target.value);
@@ -60,12 +46,11 @@ const Form = ({ currenciesArray }) => {
     };
 
     const onButtonClick = async () => {
-        const exchangeData = await getExchangeData(
-            firstCurrency,
-            secondCurrency
-        );
-        setExchangeDate(exchangeData.exchangeDate);
-        setExchangeRate(exchangeData.exchangeRate.toFixed(3));
+        const firstCurrencyPLNRate = currenciesRates.rates[firstCurrency];
+        const secondCurrencyPLNRate = currenciesRates.rates[secondCurrency];
+        const rate = secondCurrencyPLNRate / firstCurrencyPLNRate;
+        setExchangeDate(currenciesRates.date);
+        setExchangeRate(rate.toFixed(3));
     };
 
     return (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import AppHeader from "./AppHeader";
 import AppWrapper from "./AppWrapper";
 import Form from "./Form";
@@ -34,7 +34,10 @@ const App = () => {
           <>
             <Clock />
             <AppHeader />
-            <Form currenciesArray={currenciesArray} />
+            <Form
+              currenciesArray={currenciesArray}
+              currenciesRates={currenciesRates}
+            />
           </>
         ) : (errorInfo ? (<ErrorPage errorMessage={errorInfo} />) : (<LoadingPage />))}
       </AppWrapper>
