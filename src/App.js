@@ -39,7 +39,9 @@ const App = () => {
               currenciesRates={currenciesRates}
             />
           </>
-        ) : (errorInfo ? (<ErrorPage errorMessage={errorInfo} />) : (<LoadingPage />))}
+        ) : (
+            errorInfo ? <ErrorPage errorMessage={errorInfo} /> : <LoadingPage />
+          )}
       </AppWrapper>
       <Background />
     </>
