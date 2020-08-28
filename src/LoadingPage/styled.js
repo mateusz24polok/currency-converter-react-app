@@ -4,44 +4,48 @@ export const FirstLoadingDot = styled.span`
     display: inline-block;
     color: red;
     transform:translateY(0);
-    animation-name: loading;
-    animation-duration: 1s;
+    animation-name: firstDotLoading;
+    animation-duration: 0.8s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 
 
-    @keyframes loading {
+    @keyframes firstDotLoading {
         0% {
             transform: translateY(0);
         }
 
-        33.33%{
+        25% {
             transform: translateY(-25%);
         }
 
-        66.66%{
+        50% {
             transform: translateY(0);
         }
         
-        100%{
+        100% {
             transform: translateY(0);
         }
     }
 `;
 
 export const SecondLoadingDot = styled(FirstLoadingDot)`
-        animation-name: loading2;
-        @keyframes loading2 {
+        animation-name: secondDotLoading;
+        @keyframes secondDotLoading {
         0% {
             transform: translateY(0);
         }
 
-        33.33%{
+        25% {
             transform: translateY(0);
         }
 
-        66.66%{
+        50% {
             transform: translateY(-25%);
+        }
+
+        75% {
+            transform: translateY(0);
         }
         
         100%{
@@ -51,18 +55,22 @@ export const SecondLoadingDot = styled(FirstLoadingDot)`
 `;
 
 export const LastLoadingDot = styled(FirstLoadingDot)`
-        animation-name: loading3;
-        @keyframes loading3 {
+        animation-name: LastDotLoading;
+        @keyframes LastDotLoading {
         0% {
             transform: translateY(0);
         }
 
-        66.66%{
+        50% {
             transform: translateY(0);
         }
         
-        100%{
+        75% {
             transform: translateY(-25%);
+        }
+
+        100% {
+            transform: translateY(0);
         }
     }
 `;
