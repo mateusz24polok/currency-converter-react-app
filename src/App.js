@@ -23,14 +23,24 @@ const currenciesArray = [
 
 const App = () => {
   const [currenciesRates, setCurrenciesRates] = useState();
+  const [errorInfo, setErrorInfo] = useState();
 
   useEffect(() => {
     fetch(`https://api.exchangeratesapi.io/latest?base=PLN`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText)
+        }
+        return response;
+      })
       .then(response => response.json())
       .then(currencyData => {
         setTimeout(() => {
           setCurrenciesRates(currencyData)
         }, 2000)
+      })
+      .catch(error => {
+        setErrorInfo(error.message);
       })
   }, []);
 
@@ -43,7 +53,7 @@ const App = () => {
             <AppHeader />
             <Form currenciesArray={currenciesArray} />
           </>
-        ) : (<p>Dane się jeszcze ładujo</p>)}
+        ) : (<p>{errorInfo ? errorInfo : "Dane się jeszcze ładują"}</p>)}
       </AppWrapper>
       <Background />
     </>
