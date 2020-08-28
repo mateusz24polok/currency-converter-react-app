@@ -4,6 +4,8 @@ import AppWrapper from "./AppWrapper";
 import Form from "./Form";
 import Background from "./Background";
 import Clock from "./Clock";
+import LoadingPage from "./LoadingPage/LoadingPage";
+import ErrorPage from "./ErrorPage/ErrorPage";
 import { useCurrenciesRates } from "./useCurrenciesRates";
 
 const currenciesArray = [
@@ -34,7 +36,7 @@ const App = () => {
             <AppHeader />
             <Form currenciesArray={currenciesArray} />
           </>
-        ) : (<p>{errorInfo ? errorInfo : "Dane się jeszcze ładują"}</p>)}
+        ) : (errorInfo ? (<ErrorPage errorMessage={errorInfo} />) : (<LoadingPage />))}
       </AppWrapper>
       <Background />
     </>
