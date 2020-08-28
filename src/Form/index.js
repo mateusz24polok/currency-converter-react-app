@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CurrencySection from "../CurrencySection";
 import Button from "../Button";
 import Message from "../Message";
 
 const Form = ({ currenciesArray, currenciesRates }) => {
-
-    console.log(currenciesRates);
 
     const [firstCurrencyValue, setFirstCurrencyValue] = useState(0);
     const [secondCurrencyValue, setSecondCurrencyValue] = useState(0);
@@ -14,34 +12,36 @@ const Form = ({ currenciesArray, currenciesRates }) => {
     const [exchangeDate, setExchangeDate] = useState("");
     const [exchangeRate, setExchangeRate] = useState("");
 
-    useEffect(() => {
-        const firstCurrencyPLNRate = currenciesRates.rates[firstCurrency];
-        const secondCurrencyPLNRate = currenciesRates.rates[secondCurrency];
-        const rate = secondCurrencyPLNRate / firstCurrencyPLNRate;
-
-        console.log(firstCurrencyPLNRate, secondCurrencyPLNRate, rate);
-
-        setSecondCurrencyValue(firstCurrencyValue * rate)
-    },
-        [firstCurrencyValue, firstCurrency, secondCurrency, currenciesRates.rates])
+    const getRate = (reverseRate, baseCurrency, minorCurrency) => {
+        const baseCurrencyPLNRate = currenciesRates.rates[baseCurrency];
+        const minorCurrencyPLNRate = currenciesRates.rates[minorCurrency];
+        if (reverseRate) {
+            return baseCurrencyPLNRate / minorCurrencyPLNRate;
+        }
+        return minorCurrencyPLNRate / baseCurrencyPLNRate;
+    };
 
     const onFirstInputChange = event => {
         setFirstCurrencyValue(event.target.value);
+        setSecondCurrencyValue((event.target.value * getRate(false, firstCurrency, secondCurrency)).toFixed(2))
         setExchangeDate("");
     };
 
     const onSecondInputChange = event => {
         setSecondCurrencyValue(event.target.value);
+        setFirstCurrencyValue((event.target.value * getRate(true, firstCurrency, secondCurrency)).toFixed(2))
         setExchangeDate("");
     };
 
     const onFirstSelectChange = event => {
         setFirstCurrency(event.target.value);
+        setSecondCurrencyValue((firstCurrencyValue * getRate(false, event.target.value, secondCurrency)).toFixed(2))
         setExchangeDate("");
     };
 
     const onSecondSelectChange = event => {
         setSecondCurrency(event.target.value);
+        setSecondCurrencyValue((firstCurrencyValue * getRate(false, firstCurrency, event.target.value)).toFixed(2))
         setExchangeDate("");
     };
 
@@ -64,11 +64,10 @@ const Form = ({ currenciesArray, currenciesRates }) => {
             />
             <CurrencySection
                 currencyValueChangeHandler={onSecondInputChange}
-                currencyValue={secondCurrencyValue.toFixed(2)}
+                currencyValue={secondCurrencyValue}
                 currencyChange={onSecondSelectChange}
                 currencyArray={currenciesArray}
                 defaultSelection="EUR"
-                inputDisabled
             />
             <Button
                 buttonContent="Check exchange rate and date"
