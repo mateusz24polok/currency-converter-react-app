@@ -1,12 +1,10 @@
 import React from "react";
-import { FirstLoadingDot, SecondLoadingDot, LastLoadingDot } from "./styled";
+import LoadingDots from "./LoadingDots/LoadingDots";
 
 const LoadingPage = () => (
     <p>
         Trwa ładowanie danych
-        <FirstLoadingDot>.</FirstLoadingDot>
-        <SecondLoadingDot>.</SecondLoadingDot>
-        <LastLoadingDot>.</LastLoadingDot>
+        <LoadingDots />
     </p>
 );
 

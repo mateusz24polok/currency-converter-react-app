@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FirstLoadingDot = styled.span`
     display: inline-block;
-    color: red;
+    color: ${ ({ theme }) => theme.color.silver};
     transform:translateY(0);
     animation-name: firstDotLoading;
     animation-duration: 0.8s;
