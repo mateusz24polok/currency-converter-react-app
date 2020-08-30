@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CurrencySection from "../CurrencySection";
 import Button from "../Button";
 import Message from "../Message";
+import { useNegativeValueProtection } from "./useNegativeValueProtection";
 
 const Form = ({ currenciesArray, currenciesRates }) => {
 
@@ -11,22 +12,8 @@ const Form = ({ currenciesArray, currenciesRates }) => {
     const [secondCurrency, setSecondCurrency] = useState("EUR");
     const [exchangeDate, setExchangeDate] = useState("");
     const [exchangeRate, setExchangeRate] = useState("");
-    const [negativeValueProtection, setNegativeValueProtection] = useState(false);
 
-    useEffect(() => {
-        if (firstCurrencyValue < 0 || secondCurrencyValue < 0) {
-            setNegativeValueProtection(true);
-            setFirstCurrencyValue(0);
-            setSecondCurrencyValue(0);
-        }
-        const timeoutIndex = setTimeout(() => {
-            setNegativeValueProtection(false);
-        }, 2000)
-
-        return (() => {
-            clearTimeout(timeoutIndex);
-        })
-    }, [firstCurrencyValue, secondCurrencyValue])
+    const negativeValueProtection = useNegativeValueProtection(firstCurrencyValue, secondCurrencyValue, setFirstCurrencyValue, setSecondCurrencyValue);
 
     const getRate = (reverseRate, baseCurrency, minorCurrency) => {
         const baseCurrencyPLNRate = currenciesRates.rates[baseCurrency];
