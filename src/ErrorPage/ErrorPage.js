@@ -1,10 +1,11 @@
 import React from "react";
+import { ErrorInfo } from "./styled";
 
 const ErrorPage = ({ errorMessage }) => (
-    <>
-        <p>Wystąpił błąd typu:</p>
-        <p>{errorMessage}</p>
-    </>
+    <section>
+        <ErrorInfo>Sorry, the application you are trying to run has the following problem:</ErrorInfo>
+        <ErrorInfo>{errorMessage} !!!</ErrorInfo>
+    </section>
 );
 
 export default ErrorPage;
