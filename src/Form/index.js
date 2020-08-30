@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CurrencySection from "../CurrencySection";
 import Button from "../Button";
 import Message from "../Message";
@@ -11,6 +11,22 @@ const Form = ({ currenciesArray, currenciesRates }) => {
     const [secondCurrency, setSecondCurrency] = useState("EUR");
     const [exchangeDate, setExchangeDate] = useState("");
     const [exchangeRate, setExchangeRate] = useState("");
+    const [negativeValueProtection, setNegativeValueProtection] = useState(false);
+
+    useEffect(() => {
+        if (firstCurrencyValue < 0 || secondCurrencyValue < 0) {
+            setNegativeValueProtection(true);
+            setFirstCurrencyValue(0);
+            setSecondCurrencyValue(0);
+        }
+        const timeoutIndex = setTimeout(() => {
+            setNegativeValueProtection(false);
+        }, 2000)
+
+        return (() => {
+            clearTimeout(timeoutIndex);
+        })
+    }, [firstCurrencyValue, secondCurrencyValue])
 
     const getRate = (reverseRate, baseCurrency, minorCurrency) => {
         const baseCurrencyPLNRate = currenciesRates.rates[baseCurrency];
@@ -74,9 +90,14 @@ const Form = ({ currenciesArray, currenciesRates }) => {
                 onClick={onButtonClick}
             />
             <Message
-                content={`Your calculation is current for ${exchangeDate} 
-                    and your exchange rate is ${exchangeRate}`}
-                info={exchangeDate ? true : false} />
+                content={negativeValueProtection
+                    ? "You have entered negative value"
+                    : `Your calculation is current for ${exchangeDate} 
+                    and your exchange rate is ${exchangeRate}`
+                }
+                info={exchangeDate ? true : false}
+                warning={negativeValueProtection}
+            />
         </form>
     );
 };
