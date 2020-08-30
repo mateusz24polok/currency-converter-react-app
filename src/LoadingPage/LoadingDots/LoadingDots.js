@@ -1,11 +1,11 @@
 import React from "react";
 import { FirstLoadingDot, SecondLoadingDot, LastLoadingDot } from "./styled";
 
-const LoadingDots = () => (
+const LoadingDots = ({ size }) => (
     <>
-        <FirstLoadingDot>.</FirstLoadingDot>
-        <SecondLoadingDot>.</SecondLoadingDot>
-        <LastLoadingDot>.</LastLoadingDot>
+        <FirstLoadingDot size={size}>.</FirstLoadingDot>
+        <SecondLoadingDot size={size}>.</SecondLoadingDot>
+        <LastLoadingDot size={size}>.</LastLoadingDot>
     </>
 );
 

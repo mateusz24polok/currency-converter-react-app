@@ -30,10 +30,10 @@ const App = () => {
   return (
     <>
       <AppWrapper>
+        <Clock />
+        <AppHeader />
         {currenciesRates ? (
           <>
-            <Clock />
-            <AppHeader />
             <Form
               currenciesArray={currenciesArray}
               currenciesRates={currenciesRates}
