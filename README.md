@@ -8,7 +8,7 @@ This is a simple currency converter that converts the value of a chosen currency
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Live Demo
-https://mateusz24polok.github.io/currency-converter/
+https://mateusz24polok.github.io/currency-converter-react-app/
 
 # Instructions how to use
 1. Select your currency from list in first line

@@ -22,8 +22,6 @@ const currenciesArray = [
   "HUF"
 ];
 
-
-
 const App = () => {
   const { currenciesRates, errorInfo } = useCurrenciesRates();
 

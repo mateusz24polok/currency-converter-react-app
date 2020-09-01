@@ -16,7 +16,7 @@ export const useNegativeValueProtection = (baseCurrencyValue, minorCurrencyValue
         return (() => {
             clearTimeout(timeoutIndex);
         })
-    }, [baseCurrencyValue, minorCurrencyValue])
+    }, [baseCurrencyValue, minorCurrencyValue, setBaseCurrencyValue, setMinorCurrencyValue])
 
     return negativeValueProtection;
 };
